@@ -1,0 +1,10 @@
+name: "veraszeto"
+description: "Vera Szeto's personal website"
+
+url: "http://veraszeto.github.io"
+
+include: ['_pages']
+relative_permalinks: false
+
+markdown: rdiscount
+highlighter: pygments
