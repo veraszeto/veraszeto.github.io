@@ -1,2 +1,0 @@
-veraszeto.github.io
-===================
