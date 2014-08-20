@@ -1,421 +1,155 @@
-<html>
-<body>
+<!DOCTYPE html>
+<html lang="en">
 
-<script language="Javascript">
-<!--
-    var nFrameOpen = false;
-    var nFullWindow = false;
-    
-    function getFlashVars()
-    {
-        return 'nTourID=1023030&SessionKey={7BDD68C4-C45C-43B4-8B6B-34AB4FFD9A3D}&fautoplay=1&fsmode=0';
-    }
+<head>
 
-    function setiframe(u)
-    {
-        var oIFrame = document.getElementById('oIFrame')
-	    if((u=='')||(u=='null'))
-	    {
-		    nFrameOpen = false;
-		    oIFrame.src = 'art/pixel.gif';
-		    oIFrame.style.top = -document.body.clientHeight + 'px';
-	    }
-	    else
-	    {
-		    nFrameOpen = true;
-		    setposition();
-		    oIFrame.src = u;
-	    }
-	    return true;
-    }
-    
-    function setposition()
-    {
-        if(nFullWindow) {
-            var ois = document.getElementById('oIFrame').style;
-	        ois.left = '0px';
-	        ois.top = '0px';
-	        ois.width = '100%';
-	        ois.height = '100%';
-        }
-        else {
-            // compute size
-            var bw, bww, bh;
-            if (window.innerWidth && window.innerHeight) {
-                bw = window.innerWidth;
-                bh = window.innerHeight;
-            } else if (document.compatMode=='CSS1Compat' && document.documentElement && document.documentElement.offsetWidth ) {
-                bw = document.documentElement.offsetWidth;
-                bh = document.documentElement.offsetHeight;
-            } else if (document.body && document.body.offsetWidth) {
-                bw = document.body.offsetWidth;
-                bh = document.body.offsetHeight;
-            }
-            bw -= 40;
-            bww = (bw > (bh * 1.333))?(bh * 1.333):(bw);
-            
-            // set flash move location values
-	        var oFlash = document.getElementById('oFlash');
-            var oFlash2 = document.getElementById('oFlash2');
-            if(oFlash)
-            {
-	            oFlash.style.width = bww + 'px';
-    	        oFlash.style.height = bh + 'px';
-            }
-            if(oFlash2)
-            {
-	            oFlash2.style.width = bww + 'px';
-    	        oFlash2.style.height = bh + 'px';
-            }
-            
-            // set iframe
-            if(!nFrameOpen)
-            {
-                var oIFrame = document.getElementById('oIFrame');
-		        if(oIFrame) { oIFrame.style.top = '-9999px'; }
-            }
-            else
-            {
-	            var r = (1024 / 768);
-	            var br = bw / bh;
-	            if(br > r)
-	            {
-		            w = bh * r;
-		            h = bh;
-	            }
-	            else
-	            {
-		            w = bw;
-		            h = bw / r;
-	            }
-	            var ow = Math.round((bw - w) / 2)
-	            var oh = Math.round((bh - h) / 2)
-	            var ois = document.getElementById('oIFrame').style;
-	            ois.left = (ow + (w * 0.086)) + 'px';
-	            ois.top = (oh + (h * 0.211)) + 'px';
-	            ois.width = (w * 0.896) + 'px';
-	            ois.height = (h * 0.495) + 'px';
-            }
-        }
-    }
-    
-    function togglesize(s) {
-        nFullWindow = s;
-        setposition();
-    }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    function fastSize() {
-	    var oFlash = document.getElementById('oFlash');
-        var oFlash2 = document.getElementById('oFlash2');
-        if(oFlash && oFlash2) {
-            if(oFlash.readyState == 0 && oFlash2.readyState == 0) {
-                window.setTimeout('fastSize()', 50);
-            }
-            else {
-                setposition();
-            }
-        }
-        else {
-            window.setTimeout('fastSize()', 50);
-        }
-    }
-    fastSize();
+    <title>Vera Szeto</title>
 
-    
-        function loadTime(b, ms) {
-            var lastspeed = 0;
-            var thisspeed = Math.floor(b / ms);
-            var newspeed = 0;
-            var c = '; ' + document.cookie;
-            if(c.indexOf('; speed=')>-1) {
-                lastspeed = Number(c.split('; speed=', 2)[1].split(';', 2)[0]);
-                newspeed = (thisspeed + lastspeed) / 2;
-            }
-            else {
-                newspeed = thisspeed;
-            }
-            document.cookie = 'speed=' + Math.floor(newspeed) + '; expires=' + (new Date('8/18/2015 11:09:37 AM')).toGMTString() + '; path=/';
-            if(console) { console.log('lastspeed=' + lastspeed + ', thisspeed=' + thisspeed + ', newspeed=' + newspeed); }
-            var i = new Image();
-            i.src = 'speed.asp?t=1023030&b=' + escape(b) + '&ms=' + escape(ms) + '&speed=' + escape(Math.floor(newspeed));
-        }
-        function updateVisistat() {} 
-    
-// -->
-</script>
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
 
-<iframe src="art/pixel.gif" id="oIFrame" frameborder="0" style="position:absolute; width:300px; height:200px; top:-300px; left:0px; z-index:99; background-color:#ffffff;"></iframe>
+    <!-- Custom CSS -->
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
 
-<center>
-<div id="idTourContainer" style="z-index:-1; padding-right:40px;">
-	<object id="oFlash" align="top"
-		classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
-		width="100%" 
-		height="100%"
-		align="middle">
-		<param name="movie" value="tour5.swf" />
-		<param name="FlashVars" value="nTourID=1023030&SessionKey={7BDD68C4-C45C-43B4-8B6B-34AB4FFD9A3D}&fautoplay=1&fsmode=0" />
-		<param name="quality" value="high" />
-		<param name="wmode" value="direct" />
-		<param name="bgcolor" value="#000000" />
-		<param name="allowScriptAccess" value="sameDomain" />
-		<param name="allowFullScreen" value="true" />
-		<param name="scale" value="showall" />
-		<!--[if !IE]>-->
-		<object id="oFlash2" align="top" 
-			type="application/x-shockwave-flash"
-			data="tour5.swf?nTourID=1023030&SessionKey={7BDD68C4-C45C-43B4-8B6B-34AB4FFD9A3D}&fautoplay=1&fsmode=0"
-			width="1"
-			height="1">
-    		<param name="movie" value="tour5.swf" />
-		    <param name="FlashVars" value="nTourID=1023030&SessionKey={7BDD68C4-C45C-43B4-8B6B-34AB4FFD9A3D}&fautoplay=1&fsmode=0" />
-			<param name="quality" value="high" />
-			<param name="wmode" value="direct" />
-			<param name="bgcolor" value="#000000" />
-			<param name="allowScriptAccess" value="sameDomain" />
-			<param name="allowFullScreen" value="true" />
-			<param name="scale" value="showall" />
-			<!--<![endif]-->
+    <!-- Custom Fonts -->
+    <link href="/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-            <div class="hmedia" style="width:780px; text-align:left; margin: 0 auto;">
-                <h1 style="margin: 20px 0 0 0;">Oakland</h1>
-                <h3 style="color:#999; margin-top:0;">
-                    <a href="http://www.tourfactory.com/1023030" style="color:#999;">2073 Magellan Dr., Oakland, California</a> &nbsp;|&nbsp; MLS #40619968 &nbsp;|&nbsp;<a href="http://www.tourfactory.com/" style="color:#999;">Virtual Tour</a> #1023030
-                </h3>
-                <table border=0 cellpadding=0 cellspacing=0>
-                    <tr valign="top">
-                        <td colspan=3 style="width:510px;">
-                            
-                            <img src="media/scene/big2/00/21/56/16/21561677.jpg" alt="Front" class="photo" width=508 height=381 style="border: 1px solid #555;" /><br />
-                            <h3 style="margin:0;">Front</h3>
-                            <div style="color:#999; font-size:12px;">Unique Architect designed home in the heart of Montclair hills. This Redwood custom built home has beautiful stained glass throughout. This four level home has approx 3700sf living, 8000sf lot, 5 bedrooms and 5.5 baths. The spacious living room has soaring 20' ceilings, central fireplace and expansive views of the hills. The master bedroom has its own fireplace along with cathedral ceiling. There are french doors that lead to the decks on each floor. The main deck that over looks the hill side has wrap-around benches for all your guests to enjoy! This home will make its owner very very proud!
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-The lowest level is a separate unit with its own entrance, own kitchen, a wrapped around deck with hill side view, one bedroom, and a full bath with a Japanese Soaking Tub! Perfect for Au-pair or in-law.
+</head>
 
-The attached two car garage has interior access to the study which also has hill side views from each window. The property has a wide frontage which allows for several guest parking spaces, very rare in Montclair. This home is located within a short walk to Montclair village, school, restaurants, and shops.
 
-This home is built with Redwood inside and out.
-The foundation is well-designed and has drilled piers, great for hillside construction. The pictures are gorgeous, but the house shows even better. A must see for yourself!!</div>
-                            <br style="line-height:30px;" />
-                        </td>
-                        <td style="width:30px;"></td>
-                        <td style="width:240px;">
-                            <ul style="margin:0; padding: 0 0 0 20px;">
-                                <li>$830,000</li><li>5 bedrooms</li><li>5.5 bathrooms</li><li>3,700 sq. ft.</li><li>Montclair</li>
-                            </ul>
-
-                            
-                                <div style="color:#999; font-size:14px; margin: 20px 0 6px 0;">
-                                    For more information, contact:
-                                </div>
-                                <table border=0 cellpadding=0 cellspacing=0>
-                                    <tr valign="top">
-                                        <td style="width:75px;"><img src="media/user/00/00/07/47/62/User74762_132_198.jpg" alt="Vera Szeto Email:toveraszeto@gmail.com" class="photo" width=66 height=99 style="border: 1px solid #555;" /></td>
-                                        <td>
-                                            <h2 style="margin:0;">Vera Szeto Email:toveraszeto@gmail.com</h2>Coldwell Banker Real Estate<br />
-                                            510-289-4378<br />
-                                            
-                                        </td>
-                                    </tr>
-                                </table>
-                                
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <td colspan="3">
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561680.jpg">Entrance</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561681.jpg">Entry</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561683.jpg">Living</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561686.jpg">Living</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561687.jpg">Living</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561689.jpg">Deck</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561692.jpg">Dining</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561694.jpg">Dining</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561695.jpg">Nook</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561696.jpg">Kitchen</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/16/21561699.jpg">Kitchen</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561701.jpg">Kitchen</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561704.jpg">Family</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561705.jpg">Family</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561707.jpg">Bedroom</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561708.jpg">Master</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561709.jpg">Master</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561710.jpg">Master</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561712.jpg">Master Bathroom</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561713.jpg">Master Bathroom</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561716.jpg">Bedroom</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561717.jpg">Bedroom</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561719.jpg">Bathroom</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561720.jpg">Bedroom</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561723.jpg">Patio</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561724.jpg">Patio</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561725.jpg">Patio</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561727.jpg">Loft</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561730.jpg">Loft</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561731.jpg">Downstairs</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561735.jpg">Downstairs</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561736.jpg">Japanese Soaking Tub</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561737.jpg">Downstairs</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561740.jpg">Downstairs</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561744.jpg">Back</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561745.jpg">Deck</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561748.jpg">Front</a></h5>
-                                    
-                                    <br />
-                                    
-                                    <h5 style="margin:0;"><a href="media/scene/big2/00/21/56/17/21561750.jpg">Front</a></h5>
-                                    
-                                    <br />
-                                    </td>
-                    </tr>
-                </table>
-                
-                    <table border=0 cellpadding=0 cellspacing=0>
-                        <tr>
-                            
-                                <td style="width:410px;">
-                                    <video width=370 height=228 style="border: 1px solid #999;" controls>
-                                        <source src="http://video.tourfactory.com/mp4/00/01/02/30/1023030.mp4" type="video/mp4" />
-                                    </video><br />
-                                    <a href="http://video.tourfactory.com/mp4/00/01/02/30/1023030.mp4" rel="enclosure" type="video/mp4">http://video.tourfactory.com/mp4/00/01/02/30/1023030.mp4</a><br />
-                                </td>
-                                
-                            <td style="width:370px;">
-                                <iframe src="https://maps.google.com/?q=2073+Magellan+Dr%2E%2C%2094611&amp;ie=UTF8&amp;t=m&amp;z=11&amp;output=embed&amp;iwloc=near" frameborder=0 width=370 height=250 style="border: 1px solid #999;"></iframe>
-                            </td>
-                        </tr>
-                    </table>
-                    
-                <br />
-                <div style="border-top: 1px solid #444; border-bottom: 1px solid #444; padding: 14px 0;">
-                    For the best experience of this virtual tour, please install Adobe Flash and refresh this page.<br />
-                    
-			            <a href="http://www.adobe.com/go/getflash">
-				            <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" width=112 height=33 vspace=6 />
-			            </a>
-                        
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>Recent Previous Listings</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-6">
+                        	<h2>2073 Magellan Drive</h2>
+                            <div class="portfolio-item">
+                                <a href="http://tours.tourfactory.com/tours/tour.asp?t=1023030">
+                                    <img class="img-portfolio img-responsive" src="/img/2073MagellanDr.jpg" width="500">
+                                </a>                                
+                                Sold for XXX,XXX in XX days<br>
+                        		Another line of description
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        	<h2>16560 Russell Court</h2>                        
+                            <div class="portfolio-item">
+                                <a href="http://tours.tourfactory.com/tours/tour.asp?t=1142847">
+                                    <img class="img-portfolio img-responsive" src="/img/16560RussellCt.jpg" width="500">
+                                </a>                                
+                                Sold for XXX,XXX in XX days<br>
+                        		Another line of description
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        	<h2>123 XYZ Drive</h2>
+                            <div class="portfolio-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" src="/img/portfolio-3.jpg">
+                                </a>                                                                
+                                Sold for XXX,XXX in XX days<br>
+                        		Another line of description
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        	<h2>123 XYZ Drive</h2>                        
+                            <div class="portfolio-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" src="/img/portfolio-4.jpg">
+                                </a>                                
+                                Sold for XXX,XXX in XX days<br>
+                        		Another line of description
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                    <a href="#" class="btn btn-dark">View More Items</a>
                 </div>
-                <br />
-                <div style="color:#777; font-size:10px; text-align:center;">
-                    Copyright 1996-2014&nbsp;<a href="http://www.tourfactory.com/">TourFactory.com</a>
-                </div>
-                <br /><br />
+                <!-- /.col-lg-10 -->
             </div>
-			<!--[if !IE]>-->
-		</object>
-		<!--<![endif]-->
-	</object>
-</div>
-</center>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
 
 
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+            	<a href="/">
+                <div class="fill" style="background-image:url('/img/2073MagellanDr.jpg');"></div>
+                </a>
+                <div class="carousel-caption">
+                    <h2>test pic 1</h2>
+                </div>
+            </div>
+            <div class="item">
+            	<a href="/">
+                <div class="fill" style="background-image:url('/img/16560RussellCt.jpg');"></div>
+                </a>
+                <div class="carousel-caption">
+                    <h2>test pic 2</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <!-- /.container -->
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 50 //changes the speed
+    })
+    </script>
+    
+    
+    
+    
+    
+    
+        <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
 </body>
+
 </html>
